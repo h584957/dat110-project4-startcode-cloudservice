@@ -36,6 +36,7 @@ public class AccessLog {
 	// TODO: clear the access entry log
 	public void clear() {
 		log.clear();
+		cid.set(0);
 	}
 	
 	// TODO: return JSON representation of the access log
