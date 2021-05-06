@@ -94,5 +94,4 @@ public class App {
 	            return gson.toJson(accesslog.toJson());
 	        });
     }
-    
 }
