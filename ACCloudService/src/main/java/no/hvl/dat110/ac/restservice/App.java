@@ -62,6 +62,37 @@ public class App {
 			
 			return gson.toJson(accesslog.toJson());
 		});
+		get("/accessdevice/log/:id", (req, res) -> {
+			 Gson gson = new Gson();
+
+	            int id = Integer.parseInt(req.params(":id"));
+	            AccessEntry accessEntry = accesslog.get(id);
+
+	            return gson.toJson(accessEntry);
+		});
+		   get("/accessdevice/code", (req, res) ->{
+
+	            Gson gson = new Gson();
+
+	            return gson.toJson(accesscode);
+	        });
+		
+		put("/accessdevice/code", (req, res) ->{
+
+            Gson gson = new Gson();
+
+            accesscode = gson.fromJson(req.body(), AccessCode.class);
+
+            return gson.toJson(accesscode);
+        });
+		  delete("/accessdevice/log", (req, res) ->{
+
+	            Gson gson = new Gson();
+
+	            accesslog.clear();
+
+	            return gson.toJson(accesslog.toJson());
+	        });
     }
     
 }
